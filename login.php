@@ -3,6 +3,13 @@
     <head>
         <script type="text/javascript" src="prototype.js"></script>
         <script type="text/javascript" src="login.js"></script>
+        
+        <script type="text/javascript" src="home.js"></script>
+        <script type="text/javascript" src="compose.js"></script>
+        <script type="text/javascript" src="inbox.js"></script>
+        
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        
         <title>Cheapo login</title>
         
     </head>
@@ -40,6 +47,7 @@
         
         try
         {
+            ////////////////check if provided credentials is in database////////////////
             $uname=$con->quote($_REQUEST["uname"]);
             $pwd=$con->quote($_REQUEST["pwd"]);
             
@@ -48,7 +56,8 @@
             foreach($res as $row)
             {
                 $uid=$row['id'];
-                $data=header("Location:home.php?uid=$uid");
+                
+                $data=header("Location:home.php?uid=$uid");//path to homepage
                 
                 break;
             }
